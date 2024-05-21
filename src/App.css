@@ -1,38 +1,154 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-container{
+  width: 99%;
+  height: 99vh;
+  background-color: #FFFFFF;
+  border: 2px solid rosybrown;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} 
+.signUp-box{
+  width: 700px;
+    height: 450px;
+   box-shadow: 0px 10px 10px grey;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+
+}
+.signUp-img{
+  width: 343px;
+  height: 450px;
+}
+ .signUp-form{ 
+    width: 343px;
+    padding: 10px;
+  }
+ .top-sign-in-line{
+       height: 5px;
+       width: 100%;
+       background : #B5918C;
+       }
+       .signUp-form h4{
+        color : #B5918C;
+       }
+       .signUp-img-txt{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+         color: white ;
+         width : 300px;
+         font-weight: bold;
+         font-family: sans-serif;
+       }
+* {
+  box-sizing: border-box;
+}
+.header {
+  height: 80px;
+  width: 100vw;
+  display: grid;
+  place-items: center;
+  background-color: #ffffff;
+}
+.header-main {
+  height: 90%;
+  width: 98%;
+ 
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+ 
 }
 
-.App-link {
-  color: #61dafb;
+.header-logo {
+  
+  width: 20%;
+  height: 100%;
+  display: grid;
+  place-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logo {
+  
+  height: 100%;
+  width: 90%;
+  background-size: cover;
 }
+
+.header-content {
+
+  height: 100%;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-list {
+
+  height: 100%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-search {
+ 
+  height: 60%;
+  width: 30%;
+  border-radius: 50px;
+  box-shadow: 0 0 5px 1px gray;
+  padding: 8px;
+  padding-left: 20px;
+  color: gray;
+  font-size: medium;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} 
+.search{
+ border: none;
+ height: 100%;
+ width: 90%;
+ 
+}
+.search-icon{
+  height: 40%;
+
+  color: #5d5b5b;
+}
+.second{
+  height: 100%;
+  width: 98%;
+ }
+.second-header{
+  height: 3rem;
+  width: 100%;
+  background-color: #ffffff;
+   box-shadow: 0 0 1px 1px rgb(203, 203, 203);
+} 
+.second-text{
+  height: 2rem;
+  width: 100%;
+ 
+  display: flex;
+  flex-direction: row;
+   justify-content: space-around;
+   align-items: center;
+   color: #616060;
+}
+.line{
+  height: 1px;
+  width: 82%;
+  background-color: rgb(171, 169, 169);
+  margin-left: 130px !important;
+  margin-top: 2px;
+}
+
