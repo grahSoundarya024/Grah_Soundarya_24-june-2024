@@ -6,6 +6,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { UploadVideo } from "../redux-config/RoomTypePostslice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { styled } from '@mui/material/styles';
+import Header from "./Header";
+
+
+////upload MUI
+const CustomButton = styled(Button)(({ theme }) => ({
+  backgroundColor: '#D89619',
+
+  color: '#fff',
+  '&:hover': {
+    backgroundColor: '#b37714',
+  },
+  padding: '10px 20px',
+  borderRadius: '8px',
+  fontWeight: 'bold',
+  textTransform: 'none',
+}));
+
 
 const RoomTypePost = () => {
   const [roomType, setRoomType] = useState('');
@@ -70,7 +88,7 @@ const RoomTypePost = () => {
     }
 
     setErrorMessage('');
-
+ 
     if (excelFile) {
       const formData = new FormData();
       formData.append('excelFile', excelFile);
@@ -123,12 +141,17 @@ const RoomTypePost = () => {
     if (!isLoading && !error && AllVideoList) {
     }
   }, [AllVideoList, isLoading, error]);
-  return (
-    <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+  return <>
+      <Header/>
+
+    <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh",marginTop:'20px' }}>
       <Form onSubmit={handleSubmit} style={{ width: "60%", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)", padding: "20px", borderRadius: "10px" }}>
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
-          <h1>Send us your Files!</h1>
-          <p style={{ fontSize: "18px" }}>Upload Room Type</p>
+          {/* <h1>Send us your Files!</h1> */}
+          <h1 className="text-blk heading">
+          Send us your Files!</h1>
+
+          <p  style={{ fontSize: "18px" }} className="text-blk heading ">Upload Room Type</p>
         </div>
         {errorMessage && <p style={{ color: "red", textAlign: "center" }}>{errorMessage}</p>}
         <Form.Group controlId="roomTypeSelect">
@@ -193,13 +216,16 @@ const RoomTypePost = () => {
         </Form.Group>
 
         <div style={{ textAlign: "center", marginTop: "20px" }}>
-          <Button variant="primary" type="submit" style={{ width: "200px", height: "40px", fontSize: "16px" }}>
+          {/* <Button variant="primary" type="submit" style={{ width: "200px", height: "40px", fontSize: "16px" }}>
             Submit
-          </Button>
+          </Button> */}
+          <CustomButton variant="contained " // endIcon={<SendIcon />} 
+          style={{ width: "150px", height: "45px", fontSize: "16px" }}> Submit</CustomButton>
+
         </div>
       </Form>
     </Container>
-  );
+    </>
 };
 
 export default RoomTypePost;

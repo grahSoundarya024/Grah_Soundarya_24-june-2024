@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
         <div className="div-3">Monthly Subscription Plan</div>
         <div className="Month"></div>
         <div className="div-4 mt-4">
-          Choose the subscription plan that suits you and your buisness best.
+          Choose the subscription plan that suits you and your business best.
         </div>
         <div className="div-5 ">
           <img

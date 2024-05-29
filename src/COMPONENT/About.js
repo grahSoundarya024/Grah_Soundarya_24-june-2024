@@ -1,15 +1,20 @@
+import { PaddingTwoTone } from '@mui/icons-material';
 import './About.css'
+import Header from './Header';
 
 const About= ()=>{
     return<>
+      <div style={{ marginTop: '75px' }}>
+      <Header />
+    </div>
+
       <div className="about responsive-container-block bigContainer">
   <div className="responsive-container-block ">
     <div className="imgContainer">
-      {/* <img className="blueDots" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/aw3.svg"/> */}
-      {/* <img className="mainImg" src="https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/aw2.svg"/> */}
-      <img className='mainImg ' src='./1707039919-346b50f7532344dd231b375767352e77-2.jpeg'></img>
+ 
+<img src="http://localhost:3000/ABOUT.jpg" alt="ABOUTjpg" style= {{width: '550px'}} />
     </div>
-    <div className="responsive-container-block textSide">
+    <div className="responsive-container-block textSide">   
       <p className="text-blk heading">
         About Us
       </p>

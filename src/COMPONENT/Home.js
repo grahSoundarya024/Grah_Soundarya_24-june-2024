@@ -10,7 +10,7 @@
 // import Contact from './Contact';
 
 // const Home = () => {
-    
+
 //     const [homedesign, sethomdesigns] = useState([]);
 //     const navigate= useNavigate();
 //     useEffect(() => {
@@ -48,7 +48,7 @@
 //     const handleViewMore = (design_id) => {
 //         console.log("jiya::",design_id);
 //         navigate(`/design/${design_id}`);
-       
+
 //     };
 //     return <>
 //         <Header/>
@@ -188,15 +188,15 @@
 //          <Footer/> 
 //         </div>
 //         </div>
-       
-        
+
+
 //     </>
 // }
 // export default Home;
 import './Home.css';
 
 import axios from "axios";
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
 import { Link, useNavigate } from 'react-router-dom';
 import Header from './Header';
@@ -207,12 +207,14 @@ import Portfolio from "./Portfolio";
 import { useDispatch, useSelector } from "react-redux";
 import { subscribedList } from "../redux-config/Professionalslice";
 import SubHeader from './subHeader';
+import ChatBot from './ChatBot';
+import { Box } from '@mui/material';
 
 
 const Home = () => {
-    
+
     const [homedesign, sethomdesigns] = useState([]);
-    const navigate= useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
         axios.get("http://localhost:3001/design/viewAllRoomType")
             .then(response => {
@@ -222,23 +224,22 @@ const Home = () => {
                 console.log("errorr")
                 console.log(err);
             })
-    }, []);
-    const [homeproduct, sethomeproduct] = useState([]);
+        }, []);
+        const [homeproduct, sethomeproduct] = useState([]);
+        const [professional, setProfessional] = useState([]);
+        const { professionalList, isLoading, error } = useSelector((store) => store.Professionals);
+        const dispatch = useDispatch();
+
     useEffect(() => {
-            axios.get("http://localhost:3001/product/getCategory")
+        axios.get("http://localhost:3001/product/getCategory")
             .then(response => {
-                console.log("products:",response.data.products)
+                console.log("products:", response.data.products)
                 sethomeproduct(response.data.products)
             }).catch(err => {
-                console.log("errorr",err)
+                console.log("errorr", err)
                 console.log(err);
             })
-    }, []); 
-
-    const [professional, setProfessional] = useState([]);
-    const { professionalList, isLoading, error } = useSelector((store) => store.Professionals);
-    const dispatch = useDispatch();
-
+    }, []);
 
     useEffect(() => {
         dispatch(subscribedList())
@@ -257,16 +258,17 @@ const Home = () => {
         alert(professional_id);
         console.log('State to be sent:', { professionalData: professional });
         navigate(`/portfolio/${professional_id}`, { state: { professionalData: professional } });
-        };
+    };
 
 
-    const handleViewMore = (design_id) => {
-        console.log("jiya::",design_id);
-        navigate(`/design/${design_id}`);
-       
+    const handleViewMore = (roomType_id) => {
+        console.log("from Home to Design", roomType_id);
+        navigate(`/design/${roomType_id}`);
+
     };
     return <>
         <Header/>
+
         <SubHeader/>
         <div className="home mt-3">
             <div className="home-container">
@@ -315,106 +317,106 @@ const Home = () => {
                     </div>
 
                 </div>
-        <div className='design-section mt-5'>
+                <div className='design-section mt-5'>
 
-            <div className="home-homeproduct text-center">
-                {<h1><span className=" heading text-center  fs-1 fw-bold border-bottom  border-1 pt-1 ps-4 pe-4 ">Designs</span></h1>}
-                <div className="containerr mt-5 mb-3 d-flex align-items-center">
-                    <div className="containerr-inline d-flex align-items-center mb-3">
-                        {homedesign.map((design, index) => <div key={index}>
-                            {<div className="product-box d-flex flex-column align-items-center">
-                                <div className="product-img m-1"><img src={design.image_url} style={{ height: "440px", width: '100%' }} />
+                    <div className="home-homeproduct text-center">
+                        {<h1><span className=" heading text-center  fs-1 fw-bold border-bottom  border-1 pt-1 ps-4 pe-4 ">Designs</span></h1>}
+                        <div className="containerr mt-5 mb-3 d-flex align-items-center">
+                            <div className="containerr-inline d-flex align-items-center mb-3">
+                                {homedesign.map((design, index) => <div key={index}>
+                                    {<div className="product-box d-flex flex-column align-items-center">
+                                        <div className="product-img m-1"><img src={design.image_url} style={{ height: "440px", width: '100%' }} />
 
-                                    <div className="overlay">
-                                        <div className='fav'>
-                                            <h4 className="text-white">{design.roomType}</h4>
-                                            <i className="fa-solid fa-heart fa-xl" ></i>
+                                            <div className="overlay">
+                                                <div className='fav'>
+                                                    <h4 className="text-white">{design.roomType}</h4>
+                                                    <i className="fa-solid fa-heart fa-xl" ></i>
+                                                </div>
+                                                <button className='viewmore' onClick={() => handleViewMore(design.roomType_id)}>View more</button>
+                                            </div>
+
                                         </div>
-                                        <button className='viewmore'onClick={() => handleViewMore(design.roomType_id)}>View more</button>
-                                    </div>
-
-                                </div>
 
 
-                            </div>}
-                        </div>)}
+                                    </div>}
+                                </div>)}
+                            </div>
+
+                        </div>
+
                     </div>
 
                 </div>
+                {/* <ChatBot/> */}
+                <div className='design-section mt-5'>
 
-            </div>
+                    <div className="home-homeproduct text-center">
+                        {<h1><span className=" heading text-center  fs-1 fw-bold border-bottom  border-1 pt-1 ps-4 pe-4 ">The Product Market</span></h1>}
 
-        </div>
-        <div className='design-section mt-5'>
+                        <div className="containerr mt-5 mb-3 d-flex align-items-center">
+                            <div className="containerr-inline d-flex align-items-center mb-3">
+                                {homeproduct.map((product, index) => <div key={index}>
+                                    {<div className="product-box d-flex flex-column align-items-center justify-content-start">
+                                        <div className="product-img m-1"><img src={product.category_image} style={{ height: "440px", width: '100%' }} />
 
-            <div className="home-homeproduct text-center">
-                {<h1><span className=" heading text-center  fs-1 fw-bold border-bottom  border-1 pt-1 ps-4 pe-4 ">The Product Market</span></h1>}
-
-                <div className="containerr mt-5 mb-3 d-flex align-items-center">
-                    <div className="containerr-inline d-flex align-items-center mb-3">
-                        {homeproduct.map((product, index) => <div key={index}>
-                            {<div className="product-box d-flex flex-column align-items-center justify-content-start">
-                                <div className="product-img m-1"><img src={product.category_image} style={{ height: "440px", width: '100%' }} />
-
-                                    <div className="overlay">
-                                        <div className='fav'>
-                                            <h4 className="text-white">{product.category_name}</h4>
-                                            <i className="fa-solid fa-heart fa-xl" ></i>
+                                            <div className="overlay">
+                                                <div className='fav'>
+                                                    <h4 className="text-white">{product.category_name}</h4>
+                                                    <i className="fa-solid fa-heart fa-xl" ></i>
+                                                </div>
+                                                <button className='viewmore '>View more</button>
+                                            </div>
                                         </div>
-                                        <button className='viewmore '>View more</button>
-                                    </div>
-                                </div>
-                            </div>}
-                        </div>)}
+                                    </div>}
+                                </div>)}
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
-        </div>
+                <div className="m-2 homedesigners-div  " style={{ height: "550px" }}>
+                    <div className="row mb-5 ms-2 home-homedesigner text-center " style={{ height: "520px" }}>
+                            <p className="text-blk heading mt-5">
+                            Our Designers   </p>
 
-        </div>
-        <div className="m-2 homedesigners-div " style={{height:"580px"}}>
-            <div className="row mb-5 ms-2 home-homedesigner text-center"style={{height:"550px"}}>
-                <div className="col-md-8 mx-auto text-center">
-                    {/* <h6 className="text-primary">TEAM</h6> */}
-                    <h1 className='heading text-center  fs-1 fw-bold border-bottom  border-1 pt-1 ps-4 pe-4'>Our Designers</h1>
-                </div>
-                <div className="row text-center g-4 container-homedesigner d-flex align-items-center">
-                {/* <marquee  direction="left"> */}
-                    <div className="col-lg-3 col-sm-6 gap-5 d-flex ms-4">
+                        <div className="row text-center g-4 container-homedesigner d-flex align-items-center mb-3 ">
+                            {/* <marquee  direction="left"> */}
+                            <div className="col-lg-3 col-sm-6 gap-5 d-flex ms-4 ">
 
-                        {professional.map((professional, index) => <div key={index}>
-                            <div className="team-member designer-div card-effect mb-4 designer-box">
-                                <img className=' designer-img mt-4' src={professional.profileImg_URL} />
-                                <h5 className="mb-0 mt-4">{professional.professional_name}</h5>
-                                <p>Location:{professional.city}</p>
-                                {/* <button  to={`/portfolio/${professional.professional_id}`}
+                                {professional.map((professional, index) => <div key={index}>
+                                    <div className="team-member designer-div card-effect mb-4 designer-box">
+                                        <img className=' designer-img mt-4' src={professional.profileImg_URL} />
+                                        <h5 className="mb-0 mt-4">{professional.professional_name}</h5>
+                                        <p>Location:{professional.city}</p>
+                                        {/* <button  to={`/portfolio/${professional.professional_id}`}
                                  onClick={() => emailGoPortfolio(professional.professional_id)}   state={{ professionalData: professional }} className=' btn veiwmored' 
                                 
                             >View Profile</button> */}
-                            <button className='btn veiwmored'>
-  <Link
-    to={`/portfolio/${professional.professional_id}`}
-    onClick={() => emailGoPortfolio(professional.professional_id)}
-    style={{ textDecoration: 'none', color: 'inherit' }}
-    state={{ professionalData: professional }}
-  >
-    View Profile
-  </Link>
-</button>
-</div>
-                        </div>)}
+                                        <button className='btn veiwmored'>
+                                            <Link
+                                                to={`/portfolio/${professional.professional_id}`}
+                                                onClick={() => emailGoPortfolio(professional.professional_id)}
+                                                style={{ textDecoration: 'none', color: 'inherit' }}
+                                                state={{ professionalData: professional }}
+                                            >
+                                                View Profile
+                                            </Link>
+                                        </button>
+                                    </div>
+                                </div>)}
+                            </div>
+                            {/* </marquee> */}
+                        </div>
                     </div>
-                  {/* </marquee> */}
                 </div>
+                <About />
+                <Contact />
+                <Footer />
             </div>
         </div>
-         <About/>
-          <Contact/>
-         <Footer/> 
-        </div>
-        </div>
-       
-        
+
+
     </>
 }
 export default Home;

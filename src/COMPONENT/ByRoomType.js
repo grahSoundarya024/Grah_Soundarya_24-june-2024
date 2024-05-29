@@ -13,6 +13,7 @@ import BookmarkIcon from '@mui/icons-material/Bookmark';
 import SendIcon from '@mui/icons-material/Send';
 import { Tooltip } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import SubHeader from "./subHeader";
 
 
 const ByRoomType = () => {
@@ -105,13 +106,17 @@ const ByRoomType = () => {
 
   return (
     <>
+      <div style={{ marginTop: '75px' }}>
       <Header />
+    </div>
+    {/* <SubHeader/> */}
+    
       <div className="container-fluid p-3">
         {AllDesign.map((design, index) => (
           <div key={index} className="mb-4">
-            <h3>{design.roomType}</h3>
-
-            <div className="row">
+            {/* <h3>{design.roomType}</h3> */}
+            {/* <p style = {{textAlign:"center"}} className="text-blk heading">{design.roomType}</p> */}
+      <div className="row">
               {design.image_urls.map((img, imgIndex) => (
                 // console.log("Object print", design.designImg_id[imgIndex]),
                 <div key={imgIndex} className="col-md-4 mb-4">

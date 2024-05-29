@@ -20,13 +20,13 @@
     font-size: 22px;
 }
 
-.buttonContact{
+/* .buttonContact{
     margin-top: 6%;
     margin-left: 12%;
     border-radius: 100px !important;
     width: 100px;
     height: 55px;
-}
+} */
 
 @media only screen and  (max-width:320px){
     .content{

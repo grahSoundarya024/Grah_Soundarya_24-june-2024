@@ -16,6 +16,7 @@ export default () => {
 
     const validate = () => {
         const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+$/;
+        // const nameRegex = /^[a-zA-Z]+ [a-zA-Z]+[a-zA-Z]$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/; // Minimum 8 characters, at least one letter and one number
         const phoneRegex = /^\d{10}$/;

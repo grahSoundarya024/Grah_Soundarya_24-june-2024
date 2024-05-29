@@ -43,7 +43,7 @@ export default () => {
             sessionStorage.setItem("isLoggedIn", "true");
 
             navigate("/home")
-          }, 4500)
+          }, 1500)
         }
       } catch (err) {
         console.log(err.response);

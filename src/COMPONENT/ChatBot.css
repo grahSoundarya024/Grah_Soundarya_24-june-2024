@@ -1,0 +1,32 @@
+ /* ChatBot.css */
+.rsc-ts-bubble {
+    background: #D89619 !important;
+    color: black !important;
+}
+.rsc-ts-bubble-user {
+    background: #FFFFFF !important;
+    color: #FFFFFF !important; }
+.rsc-os-option-element {
+    background: #D89619 !important;
+    color: black !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.rsc-os-option-element:hover {
+    background: #D89619 !important;
+    opacity: 0.9; }
+.rsc-rb-bubble {
+    background: #D89619 !important;
+    color: black !important;}
+.rsc-header {
+    background: #D89619 !important;
+    color: black !important;}
+
+.rsc-float-button {
+    background-color: #D89619 !important;
+}
+.rsc-ts-bubble-user {
+    background: #FFFFFF !important;
+    color: #000000 !important; }
+
+
