@@ -5,6 +5,7 @@ import FavDesignslice from "./FavDesignslice";
 import RoomTypePostslice from "./RoomTypePostslice";
 import DesignPostslice from "./DesignPostslice";
 import  getVideosByPro  from "./Videogetslice";
+// import FavDesignPostslice from "./FavDesignPostslice";
 import FavDesignPostslice from "./FavDesignPostslice";
 
 

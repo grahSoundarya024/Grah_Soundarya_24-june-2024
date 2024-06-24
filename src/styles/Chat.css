@@ -9,12 +9,14 @@
     overflow: hidden;
     border: 2px solid #3b5998;
   }
-  .header {
+  .header-chat {
     background-color: #3b5998;
     color: white;
     width: 100%;
     text-align: center;
   }
+
+          
   .messages {
     display: flex;
     flex-direction: column;

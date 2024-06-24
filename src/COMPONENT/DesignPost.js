@@ -117,6 +117,7 @@ import { CloudUploadOutlined as CloudUploadOutlinedIcon } from '@mui/icons-mater
 import { useDispatch, useSelector } from 'react-redux';
 import { UploadDesign } from '../redux-config/DesignPostslice';
 import axios from 'axios';
+import Header from './Header';
 // id = design_id
 const DesignPost = () => {
     const { id } = useParams();
@@ -154,7 +155,6 @@ const DesignPost = () => {
                 return;
             }
         }
-        // Perform submission or other actions here
         console.log("Form submitted:", {image_url, description, excelFile });
 
         // Reset form fields and error message after submission
@@ -197,7 +197,11 @@ const DesignPost = () => {
         }
     },[AllDesignPost,isLoading,error])
 
-    return (
+    return <>
+        <div style={{ marginTop: '75px' }}>
+        <Header />
+      </div>
+  
         <Container maxWidth="md" style={{ marginTop: '50px', backgroundColor: '#f9f9f9', padding: '20px', borderRadius: '10px' }}>
             <Typography variant="h4" gutterBottom style={{ marginBottom: '20px' }}>Upload Design</Typography>
             {errorMessage && <Typography variant="body1" style={{ color: 'red', marginBottom: '10px' }}>{errorMessage}</Typography>}
@@ -251,7 +255,8 @@ const DesignPost = () => {
                 </Grid>
             </form>
         </Container>
-    );
+    {/* ); */}
+    </>
 };
 
 export default DesignPost;

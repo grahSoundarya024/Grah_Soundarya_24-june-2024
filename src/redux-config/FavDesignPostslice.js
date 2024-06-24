@@ -1,10 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const favDesignPost = createAsyncThunk("FavDesignPostslice/favDesignPost",async({user_id: currentUser,designImg_id:id})=>{
+ export const favDesignPost = createAsyncThunk("FavDesignPostslice/favDesignPost",async({user_id: currentUser,designImg_id:id})=>{
     
-    // const currentUser = sessionStorage.getItem("current_user_id");
-    alert(currentUser);
+    // alert("currentUser in FavDesignPost slice "+currentUser);
     try{
         if(!currentUser){
             console.log ("currentUser is not available");
@@ -19,7 +18,7 @@ export const favDesignPost = createAsyncThunk("FavDesignPostslice/favDesignPost"
     }
 });
 const slice = createSlice({
-    name:"FavDesignPostslice",
+    name:"favDesignPostslice",
     initialState:{
         AllFavPost:[],
         error:false,
